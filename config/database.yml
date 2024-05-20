@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  username: quanttn
+  password: quanttn
+  host: localhost
+
+development:
+  <<: *default
+  database: quanttn_blog_development
+
+test:
+  <<: *default
+  database: quanttn_blog_test
+
+production:
+  <<: *default
+  database: quanttn_blog_production
+  username: quanttn_blog
+  password: <%= ENV['QUANTTN_BLOG_DATABASE_PASSWORD'] %>
